@@ -6,14 +6,14 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 19:06:42 by stena-he          #+#    #+#              #
-#    Updated: 2022/08/04 23:16:40 by stena-he         ###   ########.fr        #
+#    Updated: 2022/08/05 03:10:48 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compilation
 NAME = 	fractol
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 # Removal
 RM = rm -f
