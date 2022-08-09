@@ -6,12 +6,16 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/08/04 23:31:01 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/08/09 21:01:33 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL
 # define FRACTOL
+
+#define MAX_ITERATIONS 80
+#define WIDTH 900
+#define HEIGHT 900
 
 # include <stdlib.h>
 # include <math.h>
@@ -24,15 +28,14 @@
 
 #include "mlx.h"
 
-// typedef struct	s_data
-// {
-// 	void		*mlx;
-// 	void		*win;
-// 	double		f;
-// 	int			fractal_set;
-// 	int			color_set;
-// 	int			width;
-// 	int			length;
-// }				t_data;
+typedef struct	s_fractol
+{
+	void		*mlx;
+	void		*win;
+	double		min_r;
+	double 		max_r;
+	double		min_i;
+	double		max_i;
+}				t_fractol;
 
 #endif
