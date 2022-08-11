@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 19:06:42 by stena-he          #+#    #+#              #
-#    Updated: 2022/08/10 00:49:57 by stena-he         ###   ########.fr        #
+#    Updated: 2022/08/11 20:18:45 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT = libraries/ft_printf/libft/libft.a
 PRINTF = libraries/ft_printf/libftprintf.a
 
 # Source and object files
-SRC =	src/main.c\
+SRC =	src/test.c\
 			
 OBJ = $(SRC:%.c=%.o)
 

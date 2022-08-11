@@ -6,25 +6,33 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:18:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/08/10 01:24:44 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/08/11 20:09:40 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	mandelbrot(t_fractol *f, int x, int y, double cr, double ci)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	int		n;
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
+void	mandelbrot(t_fractol *f, t_data *img, int x, int y, double cr, double ci)
+{
+	int	n;
 	double	zr;
 	double	zi;
 	double	tmp;
-	int		is_in_set;
+	int	is_in_set; 
 
 	zr = 0;
 	zi = 0;
-	n = 0;
+	n = -1;
 	is_in_set = 1;
-	while (n < MAX_ITERATIONS)
+	while (++n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 		{
@@ -34,51 +42,55 @@ void	mandelbrot(t_fractol *f, int x, int y, double cr, double ci)
 		tmp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
 		zi = tmp;
-		n ++;
 	}
 	if (is_in_set == 1)
-		mlx_pixel_put(f->mlx, f->win, x, y, 0x000000);
+		my_mlx_pixel_put(img, x, y, 0x00000000);
 	else
-		mlx_pixel_put(f->mlx, f->win, x, y, 0xFFFFFF);
+		my_mlx_pixel_put(img, x, y, 0x00FFFFFF);
 }
 
-void	draw_fractal(t_fractol *f)
+void	draw_fractal(t_fractol *f, t_data *img)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 	double	pr;
-	double 	pi;
+	double	pi;
 
-	y = 0;
-	while (y < HEIGHT)
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		x = -1;
+		while (++x < WIDTH)
 		{
 			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			mandelbrot(f, x, y, pr, pi);
-			x ++;
+			mandelbrot(f, img, x, y, pr, pi);
 		}
-		y ++;
 	}
 }
 
-int		main(void)
+int	main(void)
 {
-	t_fractol f;
+	t_fractol 	f;
+	t_data		img;
 
 	f.mlx = mlx_init();
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-
 	f.win = mlx_new_window(&f.mlx, WIDTH, HEIGHT, "Fract'ol test");
+
+	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+								&img.endian);
+
+	draw_fractal(&f, &img);
+
+	mlx_put_image_to_window(f.mlx, f.win, img.img, 0, 0);
+
 	
-	draw_fractal(&f);
 	mlx_loop(f.mlx);
-	// mlx_destroy_window(&f.mlx, f.win);
 }
 
 // #include <unistd.h>
