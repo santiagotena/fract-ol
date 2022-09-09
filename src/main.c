@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:18:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/08/11 20:09:40 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/08/23 20:57:52 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(void)
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.win = mlx_new_window(&f.mlx, WIDTH, HEIGHT, "Fract'ol test");
+	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fract'ol test");
 
 	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,

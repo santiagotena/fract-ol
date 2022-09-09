@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/08/11 19:50:19 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/08/23 20:44:14 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include "libraries/ft_printf/libft/libft.h"
 # include "libraries/ft_printf/ft_printf.h"
 
+//MLX
 #include "mlx.h"
 
 //Structs
