@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/08/23 20:44:14 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/12 22:17:54 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct	s_fractol
 	double 		max_r;
 	double		min_i;
 	double		max_i;
+	double		kr;
+	double		ki;
 }				t_fractol;
 
 typedef struct	s_data {
