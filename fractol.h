@@ -6,18 +6,19 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/12 22:17:54 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:06:50 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL
 # define FRACTOL
 
-//Parameters
+/* Parameters */
 #define MAX_ITERATIONS 80
 #define WIDTH 900
 #define HEIGHT 900
 
+/* Libraries */
 //Std libraries
 # include <stdlib.h>
 # include <math.h>
@@ -32,7 +33,7 @@
 //MLX
 #include "mlx.h"
 
-//Structs
+/* Structs */
 typedef struct	s_fractol
 {
 	void		*mlx;
@@ -52,5 +53,14 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }				t_data;
+
+/* Functions */
+// Fractals
+void	mandelbrot(t_fractol *f, t_data *img, int x, int y, double cr, double ci);
+void	julia(t_fractol *f, t_data *img, int x, int y, double zr, double zi);
+
+// Draw fractals
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw_fractal(t_fractol *f, t_data *img);
 
 #endif
