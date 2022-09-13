@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:18:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/13 22:41:52 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/13 23:05:18 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		// Error
-
+	f.f_name = argv[1];
 	f.mlx = mlx_init();
 	if (f.mlx == NULL)
 		return (0); 
