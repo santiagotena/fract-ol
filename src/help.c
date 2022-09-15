@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   help.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 21:18:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 23:29:52 by stena-he         ###   ########.fr       */
+/*   Created: 2022/09/15 22:44:22 by stena-he          #+#    #+#             */
+/*   Updated: 2022/09/15 22:49:06 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int	main(int argc, char **argv)
+void	print_help(void)
 {
-	if (argc < 2 || argc > 4)
-	{
-		print_help();
-		return (0);
-	}
-	
-	if (!ft_strncmp(argv[1], "mandelbrot", 11))
-		init_mandel();
-	else if (!ft_strncmp(argv[1], "julia", 6) && argc == 4)
-		init_julia();
-	else
-	{
-		ft_printf("Wait. That's illegal.\n\n");
-		print_help();
-	}
-	return (0);
+	ft_printf("/* Manual */\n\n");
+	ft_printf("List of available fractals:\n");
+	ft_printf("* Mandelbrot\n");
+	ft_printf("./fractol mandelbrot\n");
+	ft_printf("* Julia\n");
+	ft_printf("./fractol julia <real_number> <imaginary_number>\n");
+	ft_printf("e.g.: ./fractol julia -0.4 0.6\n");
 }

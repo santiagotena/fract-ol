@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 19:06:42 by stena-he          #+#    #+#              #
-#    Updated: 2022/09/13 22:12:34 by stena-he         ###   ########.fr        #
+#    Updated: 2022/09/15 22:45:33 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ PRINTF = libraries/ft_printf/libftprintf.a
 SRC =	src/main.c \
 		src/mandelbrot.c \
 		src/julia.c \
-		src/draw_fractal.c
+		src/draw_fractal.c \
+		src/help.c
 			
 OBJ = $(SRC:%.c=%.o)
 

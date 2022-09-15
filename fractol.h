@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 19:49:13 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 23:26:10 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,14 @@ typedef struct	s_fractol
 void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci);
 void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 
+// Help
+void	print_help(void);
+
 // Draw fractals
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_fractal(t_fractol *f, t_img *img);
+
+void	init_mandel();
+void	init_julia();
 
 #endif
