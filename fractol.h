@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 19:23:18 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:49:13 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,25 @@
 #include "mlx.h"
 
 /* Structs */
-//Fractal parameters
-typedef struct	s_fractol
+//MLX (new)
+typedef struct	s_mlx
 {
 	void		*mlx;
 	void		*win;
+}				t_mlx;
+
+//Images (data)
+typedef struct	s_img {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_img;
+
+//Fractal parameters 
+typedef struct	s_fractol
+{
 	char		*f_name;
 	double		min_r;
 	double 		max_r;
@@ -47,22 +61,14 @@ typedef struct	s_fractol
 	double		kr;
 	double		ki;
 }				t_fractol;
-//Images
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
 
 /* Functions */
 // Fractals
-void	mandelbrot(t_fractol *f, t_data *img, int x, int y, double cr, double ci);
-void	julia(t_fractol *f, t_data *img, int x, int y, double zr, double zi);
+void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci);
+void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 
 // Draw fractals
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw_fractal(t_fractol *f, t_data *img);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	draw_fractal(t_fractol *f, t_img *img);
 
 #endif

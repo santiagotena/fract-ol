@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 22:09:02 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/13 23:12:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:50:08 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -20,7 +20,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	draw_fractal(t_fractol *f, t_data *img)
+void	draw_fractal(t_fractol *f, t_img *img)
 {
 	int	x;
 	int	y;

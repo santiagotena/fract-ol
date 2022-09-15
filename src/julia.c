@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/13 20:04:28 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:50:51 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	julia(t_fractol *f, t_data *img, int x, int y, double zr, double zi)
+void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi)
 {
 	int	n;
 	double	tmp;

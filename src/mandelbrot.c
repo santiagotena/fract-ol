@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/13 20:04:22 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:51:13 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	mandelbrot(t_fractol *f, t_data *img, int x, int y, double cr, double ci)
+void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci)
 {
 	int	n;
 	double	zr;
