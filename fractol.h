@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/13 23:07:31 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/15 19:23:18 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 #include "mlx.h"
 
 /* Structs */
+//Fractal parameters
 typedef struct	s_fractol
 {
 	void		*mlx;
@@ -46,7 +47,7 @@ typedef struct	s_fractol
 	double		kr;
 	double		ki;
 }				t_fractol;
-
+//Images
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
