@@ -1,0 +1,2 @@
+Julia Start Values
+-0.77 + -0.09

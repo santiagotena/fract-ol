@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 23:26:30 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/17 23:26:14 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void	init_mandel()
 	t_img		img;
 	t_fractol 	f;
 
-	// f.f_name = name;
 	mlx.mlx = mlx_init();
 	if (mlx.mlx == NULL)
 		return ; 
@@ -83,8 +82,6 @@ void	init_mandel()
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.kr = -0.77;
-	f.ki = -0.09;
 	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Fract'ol test");
 
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);

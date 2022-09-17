@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 23:26:10 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/17 23:44:26 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_fractal(t_fractol *f, t_img *img);
 
 void	init_mandel();
-void	init_julia();
+void	init_julia(char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/15 23:27:17 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/17 23:44:01 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,12 @@ void	draw_julia(t_fractol *f, t_img *img)
 	}
 }
 
-void	init_julia()
+void	init_julia(char **argv)
 {
 	t_mlx		mlx;
 	t_img		img;
 	t_fractol 	f;
 
-	// f.f_name = name;
 	mlx.mlx = mlx_init();
 	if (mlx.mlx == NULL)
 		return ; 
@@ -79,8 +78,11 @@ void	init_julia()
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.kr = -0.77;
-	f.ki = -0.09;
+	f.kr = 0;
+	f.ki = 0;
+	// f.kr = ft_atoi(argv[2]);
+	// printf("Hello%f", f.kr);
+	// f.ki = ft_atoi(argv[3]);
 	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Fract'ol test");
 
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
