@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/17 23:26:14 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:58:07 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,6 @@ void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci)
 		my_mlx_pixel_put(img, x, y, 0x00000000);
 	else
 		my_mlx_pixel_put(img, x, y, 0x00FFFFFF);
-}
-
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
 }
 
 void	draw_mandelbrot(t_fractol *f, t_img *img)

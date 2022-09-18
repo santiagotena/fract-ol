@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/17 23:44:26 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:01:04 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@
 # include <unistd.h>
 # include <stdio.h>
 
-//Own libraries
+//Custom libraries
 # include "libraries/mlx/mlx.h"
 # include "libraries/ft_printf/libft/libft.h"
 # include "libraries/ft_printf/ft_printf.h"
-
-//MLX
-#include "mlx.h"
 
 /* Structs */
 //MLX (new)
@@ -71,10 +68,15 @@ void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 void	print_help(void);
 
 // Draw fractals
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 void	draw_fractal(t_fractol *f, t_img *img);
 
 void	init_mandel();
 void	init_julia(char **argv);
+
+//Utils
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+double	ft_atod(char *arr);
+
+
 
 #endif

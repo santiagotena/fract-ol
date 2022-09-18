@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 19:06:42 by stena-he          #+#    #+#              #
-#    Updated: 2022/09/17 23:27:25 by stena-he         ###   ########.fr        #
+#    Updated: 2022/09/18 13:55:06 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ PRINTF = libraries/ft_printf/libftprintf.a
 SRC =	src/main.c \
 		src/mandelbrot.c \
 		src/julia.c \
+		src/utils.c \
 		src/help.c
 			
 OBJ = $(SRC:%.c=%.o)
