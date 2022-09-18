@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 21:33:09 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 21:37:23 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	init_julia(char **argv)
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
 	f.kr = ft_atod(argv[2]);
 	f.ki = ft_atod(argv[3]);
-	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Fract'ol test");
+	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Julia Set");
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
