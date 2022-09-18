@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 21:47:43 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 23:53:57 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ void	init_julia(char **argv)
 			&img.endian);
 	draw_julia(&f, &img);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
-	mlx_hook(mlx.win, 17, 0, &close_win, &mlx);
+	mlx_hook(mlx.win, EVENT_CLOSE_BTN, 0, &close_win, &mlx);
 	mlx_key_hook(mlx.win, &key_hooks, &mlx);
+	// mlx_mouse_hook(mlx.win, &mouse_event, &mlx);
 	mlx_loop(mlx.mlx);
 	mlx_destroy_window(mlx.mlx, mlx.win);
 }
