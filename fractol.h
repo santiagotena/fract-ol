@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 16:03:07 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:04:47 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,14 @@ typedef struct s_fractol
 }				t_fractol;
 
 /* Functions */
-// Fractals
-void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci);
-void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
-
 // Help
 void	print_help(void);
 
 // Draw fractals
 void	init_mandel(void);
+void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci);
 void	init_julia(char **argv);
+void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 
 //Windows
 int		close_win(t_mlx *data);
@@ -78,7 +76,5 @@ int		key_hooks(int keycode, t_mlx *data);
 //Utils
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 double	ft_atod(char *arr);
-int		close_win(t_mlx *data);
-
 
 #endif
