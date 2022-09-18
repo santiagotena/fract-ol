@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 14:01:54 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:28:00 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi)
 {
 	int		n;
 	double	tmp;
-	int		is_in_set; 
+	int		is_in_set;
 
 	n = -1;
 	is_in_set = 1;
@@ -39,8 +39,8 @@ void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi)
 
 void	draw_julia(t_fractol *f, t_img *img)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	double	pr;
 	double	pi;
 
@@ -61,11 +61,11 @@ void	init_julia(char **argv)
 {
 	t_mlx		mlx;
 	t_img		img;
-	t_fractol 	f;
+	t_fractol	f;
 
 	mlx.mlx = mlx_init();
 	if (mlx.mlx == NULL)
-		return ; 
+		return ;
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
@@ -73,14 +73,10 @@ void	init_julia(char **argv)
 	f.kr = ft_atod(argv[2]);
 	f.ki = ft_atod(argv[3]);
 	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Fract'ol test");
-
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-
+			&img.endian);
 	draw_julia(&f, &img);
-
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
-
 	mlx_loop(mlx.mlx);
 }

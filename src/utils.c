@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 13:54:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 14:03:28 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:17:50 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,43 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 	char	*dst;
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 double	ft_atod(char *arr)
 {
-	float	val = 0;
-	int 	afterdot=0;
-	float 	scale=1;
-	int 	neg = 0; 
-	
-	if (*arr == '-') 
+	float	val;
+	int		afterdot;
+	float	scale;
+	int		neg;
+
+	val = 0;
+	afterdot = 0;
+	scale = 1;
+	neg = 0;
+	if (*arr == '-')
 	{
 		arr++;
 		neg = 1;
 	}
-	while (*arr) 
+	while (*arr)
 	{
-		if (afterdot) 
+		if (afterdot)
 		{
-			scale = scale/10;
-			val = val + (*arr-'0')*scale;
+			scale = scale / 10;
+			val = val + (*arr - '0') * scale;
 		}
-		else 
+		else
 		{
-			if (*arr == '.') 
+			if (*arr == '.')
 			afterdot++;
 			else
 			val = val * 10.0 + (*arr - '0');
 		}
 		arr++;
 	}
-	if(neg)
-		return -val;
+	if (neg)
+		return (-val);
 	else
-		return  val;
+		return (val);
 }

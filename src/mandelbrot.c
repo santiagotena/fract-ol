@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 13:58:07 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:26:32 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci)
 	double	zr;
 	double	zi;
 	double	tmp;
-	int		is_in_set; 
+	int		is_in_set;
 
 	zr = 0;
 	zi = 0;
@@ -43,8 +43,8 @@ void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci)
 
 void	draw_mandelbrot(t_fractol *f, t_img *img)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	double	pr;
 	double	pi;
 
@@ -61,28 +61,24 @@ void	draw_mandelbrot(t_fractol *f, t_img *img)
 	}
 }
 
-void	init_mandel()
+void	init_mandel(void)
 {
 	t_mlx		mlx;
 	t_img		img;
-	t_fractol 	f;
+	t_fractol	f;
 
 	mlx.mlx = mlx_init();
 	if (mlx.mlx == NULL)
-		return ; 
+		return ;
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
 	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Fract'ol test");
-
 	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-
+			&img.endian);
 	draw_mandelbrot(&f, &img);
-
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
-
 	mlx_loop(mlx.mlx);
 }
