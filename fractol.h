@@ -6,17 +6,17 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 14:01:04 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:18:36 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL
-# define FRACTOL
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 /* Parameters */
-#define MAX_ITERATIONS 80
-#define WIDTH 900
-#define HEIGHT 900
+# define MAX_ITERATIONS 80
+# define WIDTH 900
+# define HEIGHT 900
 
 /* Libraries */
 //Std libraries
@@ -32,14 +32,14 @@
 
 /* Structs */
 //MLX (new)
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void		*mlx;
 	void		*win;
 }				t_mlx;
 
 //Images (data)
-typedef struct	s_img {
+typedef struct s_img {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -48,15 +48,15 @@ typedef struct	s_img {
 }				t_img;
 
 //Fractal parameters 
-typedef struct	s_fractol
+typedef struct s_fractol
 {
-	char		*f_name;
-	double		min_r;
-	double 		max_r;
-	double		min_i;
-	double		max_i;
-	double		kr;
-	double		ki;
+	char	*f_name;
+	double	min_r;
+	double	max_r;
+	double	min_i;
+	double	max_i;
+	double	kr;
+	double	ki;
 }				t_fractol;
 
 /* Functions */
@@ -70,13 +70,11 @@ void	print_help(void);
 // Draw fractals
 void	draw_fractal(t_fractol *f, t_img *img);
 
-void	init_mandel();
+void	init_mandel(void);
 void	init_julia(char **argv);
 
 //Utils
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 double	ft_atod(char *arr);
-
-
 
 #endif
