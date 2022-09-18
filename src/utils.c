@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 13:54:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 14:17:50 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/18 15:57:04 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ double	ft_atod(char *arr)
 	}
 	while (*arr)
 	{
+		if (!ft_isdigit(*arr) && !(*arr == '.'))
+		{
+			ft_printf("Wait. That's illegal.\n\n");
+			print_help();
+			exit(0);
+		}
 		if (afterdot)
 		{
 			scale = scale / 10;
