@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 18:40:21 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:15:16 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_fractol
 {
 	void	*mlx;
 	void	*win;
+	char	f_name;
 	double	min_r;
 	double	max_r;
 	double	min_i;
@@ -64,10 +65,10 @@ typedef struct s_img {
 void	print_help(void);
 
 // Draw fractals
-void	init(char **argv);
-void	init_mandel(void);
+void	init_mandelbrot(char **argv);
 void	mandelbrot(t_img *img, int x, int y, double cr, double ci);
-// void	init_julia(t_fractol *f, t_img *img);
+void	draw_mandelbrot(t_fractol *f, t_img *img);
+void	init_julia(char **argv);
 void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 void	draw_julia(t_fractol *f, t_img *img);
 
