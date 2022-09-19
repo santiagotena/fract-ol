@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:12:55 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:36:42 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	init_julia(char **argv)
 	f.mlx = mlx_init();
 	if (f.mlx == NULL)
 		return ;
-	f.f_name = *argv[1];
+	f.f_name = argv[1];
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;

@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:26:50 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:37:07 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,11 @@ int		mouse_event(int keycode, int x, int y, t_fractol *f)
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(f, 2);
-	draw_mandelbrot(f, f->pimg);
-	// draw_julia(f, f->pimg);
+	else
+		return (0);
+	if (!ft_strncmp(f->f_name, "mandelbrot", 11))
+		draw_mandelbrot(f, f->pimg);
+	if (!ft_strncmp(f->f_name, "julia", 6))
+		draw_julia(f, f->pimg);
 	return (0);
 }

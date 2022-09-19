@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:15:16 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:35:38 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_fractol
 {
 	void	*mlx;
 	void	*win;
-	char	f_name;
+	char	*f_name;
 	double	min_r;
 	double	max_r;
 	double	min_i;
