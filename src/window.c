@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 18:27:15 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:40:48 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int		mouse_event(int keycode, int x, int y, t_fractol *f)
 		zoom(f, 2);
 	else
 		return (0);
-	init_julia(f, f->pimg);
+	draw_julia(f, f->pimg);
 	return (0);
 }

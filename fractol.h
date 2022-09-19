@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 18:31:03 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:40:21 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_help(void);
 void	init(char **argv);
 void	init_mandel(void);
 void	mandelbrot(t_img *img, int x, int y, double cr, double ci);
-void	init_julia(t_fractol *f, t_img *img);
+// void	init_julia(t_fractol *f, t_img *img);
 void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 void	draw_julia(t_fractol *f, t_img *img);
 

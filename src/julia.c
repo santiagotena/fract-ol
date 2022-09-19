@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 18:27:53 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:39:54 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,10 @@ void	draw_julia(t_fractol *f, t_img *img)
 	mlx_put_image_to_window(f->mlx, f->win, img->img, 0, 0);
 }
 
-void	init_julia(t_fractol *f, t_img *img)
-{
-	draw_julia(f, img);
-	// mlx_hook(f->win, EVENT_CLOSE_BTN, 0, &close_win, &f);
-	// mlx_key_hook(f->win, &key_hooks, &f);
-	// mlx_mouse_hook(f->win, &mouse_event, &f);
-	// mlx_loop(f->mlx);
-	// mlx_destroy_window(f->mlx, f->win);
-}
+// void	init_julia(t_fractol *f, t_img *img)
+// {
+// 	draw_julia(f, img);
+// }
 
 void	init(char **argv)
 {
@@ -90,10 +85,9 @@ void	init(char **argv)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	f.pimg = &img;
-	init_julia(&f, f.pimg);
+	draw_julia(&f, f.pimg);
 	mlx_hook(f.win, EVENT_CLOSE_BTN, 0, &close_win, &f);
 	mlx_key_hook(f.win, &key_hooks, &f);
 	mlx_mouse_hook(f.win, &mouse_event, &f);
 	mlx_loop(f.mlx);
-	// mlx_destroy_window(f.mlx, f.win);
 }
