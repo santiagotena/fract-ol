@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 14:34:34 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:27:53 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,12 @@ void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi)
 {
 	int		n;
 	double	tmp;
-	int		is_in_set;
 
 	n = -1;
-	is_in_set = 1;
 	while (++n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 		{
-			is_in_set = 0;
 			break ;
 		}
 		tmp = 2 * zr * zi + f->ki;
@@ -46,6 +43,7 @@ void	draw_julia(t_fractol *f, t_img *img)
 	double	pr;
 	double	pi;
 
+	mlx_clear_window(f->mlx, f->win);
 	y = -1;
 	while (++y < HEIGHT)
 	{
@@ -57,12 +55,23 @@ void	draw_julia(t_fractol *f, t_img *img)
 			julia(f, img, x, y, pr, pi);
 		}
 	}
+	mlx_put_image_to_window(f->mlx, f->win, img->img, 0, 0);
 }
 
-void	init_julia(char **argv)
+void	init_julia(t_fractol *f, t_img *img)
 {
-	t_img		img;
+	draw_julia(f, img);
+	// mlx_hook(f->win, EVENT_CLOSE_BTN, 0, &close_win, &f);
+	// mlx_key_hook(f->win, &key_hooks, &f);
+	// mlx_mouse_hook(f->win, &mouse_event, &f);
+	// mlx_loop(f->mlx);
+	// mlx_destroy_window(f->mlx, f->win);
+}
+
+void	init(char **argv)
+{
 	t_fractol	f;
+	t_img		img;
 
 	f.mlx = mlx_init();
 	if (f.mlx == NULL)
@@ -71,17 +80,20 @@ void	init_julia(char **argv)
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	f.kr = ft_atod(argv[2]);
-	f.ki = ft_atod(argv[3]);
-	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Julia Set");
+	if (!ft_strncmp(argv[1], "julia", 6))
+	{
+		f.kr = ft_atod(argv[2]);
+		f.ki = ft_atod(argv[3]);	
+	}
+	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fractal");
 	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
-	draw_julia(&f, &img);
-	mlx_put_image_to_window(f.mlx, f.win, img.img, 0, 0);
+	f.pimg = &img;
+	init_julia(&f, f.pimg);
 	mlx_hook(f.win, EVENT_CLOSE_BTN, 0, &close_win, &f);
 	mlx_key_hook(f.win, &key_hooks, &f);
-	// mlx_mouse_hook(f.win, &mouse_event, &mlx);
+	mlx_mouse_hook(f.win, &mouse_event, &f);
 	mlx_loop(f.mlx);
-	mlx_destroy_window(f.mlx, f.win);
+	// mlx_destroy_window(f.mlx, f.win);
 }

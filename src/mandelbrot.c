@@ -6,13 +6,13 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 14:34:16 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:02:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	mandelbrot(t_fractol *f, t_img *img, int x, int y, double cr, double ci)
+void	mandelbrot(t_img *img, int x, int y, double cr, double ci)
 {
 	int		n;
 	double	zr;
@@ -58,7 +58,7 @@ void	draw_mandelbrot(t_fractol *f, t_img *img)
 		{
 			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
 			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			mandelbrot(f, img, x, y, pr, pi);
+			mandelbrot(img, x, y, pr, pi);
 		}
 	}
 }
@@ -83,7 +83,7 @@ void	init_mandel(void)
 	mlx_put_image_to_window(f.mlx, f.win, img.img, 0, 0);
 	mlx_hook(f.win, EVENT_CLOSE_BTN, 0, &close_win, &f);
 	mlx_key_hook(f.win, &key_hooks, &f);
-	// mlx_mouse_hook(f.win, &mouse_event, &mlx);
+	mlx_mouse_hook(f.win, &mouse_event, &f);
 	mlx_loop(f.mlx);
 	mlx_destroy_window(f.mlx, f.win);
 }
