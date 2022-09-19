@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 23:36:08 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:37:41 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,18 @@
 # include "libraries/ft_printf/ft_printf.h"
 
 /* Structs */
-//MLX (new)
-typedef struct s_mlx
+//Fractal parameters 
+typedef struct s_fractol
 {
-	void		*mlx;
-	void		*win;
-}				t_mlx;
+	void	*mlx;
+	void	*win;
+	double	min_r;
+	double	max_r;
+	double	min_i;
+	double	max_i;
+	double	kr;
+	double	ki;
+}				t_fractol;
 
 //Images (data)
 typedef struct s_img {
@@ -51,18 +57,6 @@ typedef struct s_img {
 	int		line_length;
 	int		endian;
 }				t_img;
-
-//Fractal parameters 
-typedef struct s_fractol
-{
-	char	*f_name;
-	double	min_r;
-	double	max_r;
-	double	min_i;
-	double	max_i;
-	double	kr;
-	double	ki;
-}				t_fractol;
 
 /* Functions */
 // Help
@@ -75,8 +69,8 @@ void	init_julia(char **argv);
 void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
 
 //Windows
-int		close_win(t_mlx *data);
-int		key_hooks(int keycode, t_mlx *data);
+int		close_win(t_fractol *data);
+int		key_hooks(int keycode, t_fractol *data);
 
 //Mouse
 int		mouse_event(int keycode, int x, int y, t_fractol *f);

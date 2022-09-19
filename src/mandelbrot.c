@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 23:56:42 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:34:16 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,25 @@ void	draw_mandelbrot(t_fractol *f, t_img *img)
 
 void	init_mandel(void)
 {
-	t_mlx		mlx;
 	t_img		img;
 	t_fractol	f;
 
-	mlx.mlx = mlx_init();
-	if (mlx.mlx == NULL)
+	f.mlx = mlx_init();
+	if (f.mlx == NULL)
 		return ;
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
 	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
-	mlx.win = mlx_new_window(mlx.mlx, WIDTH, HEIGHT, "Mandelbrot Set");
-	img.img = mlx_new_image(mlx.mlx, WIDTH, HEIGHT);
+	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Mandelbrot Set");
+	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
 	draw_mandelbrot(&f, &img);
-	mlx_put_image_to_window(mlx.mlx, mlx.win, img.img, 0, 0);
-	mlx_hook(mlx.win, EVENT_CLOSE_BTN, 0, &close_win, &mlx);
-	mlx_key_hook(mlx.win, &key_hooks, &mlx);
-	// mlx_mouse_hook(mlx.win, &mouse_event, &mlx);
-	mlx_loop(mlx.mlx);
-	mlx_destroy_window(mlx.mlx, mlx.win);
+	mlx_put_image_to_window(f.mlx, f.win, img.img, 0, 0);
+	mlx_hook(f.win, EVENT_CLOSE_BTN, 0, &close_win, &f);
+	mlx_key_hook(f.win, &key_hooks, &f);
+	// mlx_mouse_hook(f.win, &mouse_event, &mlx);
+	mlx_loop(f.mlx);
+	mlx_destroy_window(f.mlx, f.win);
 }

@@ -6,24 +6,24 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/18 23:41:34 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:32:02 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
 // Close windows
-int		close_win(t_mlx *mlx)
+int		close_win(t_fractol *f)
 {
-	mlx_destroy_window(mlx->mlx, mlx->win);
-	mlx->win = NULL;
+	mlx_destroy_window(f->mlx, f->win);
+	f->win = NULL;
 	exit(0);
 }
 
-int		key_hooks(int keycode, t_mlx *mlx)
+int		key_hooks(int keycode, t_fractol *f)
 {
 	if (keycode == 53)
-		close_win(mlx);
+		close_win(f);
 	return (0);
 }
 
