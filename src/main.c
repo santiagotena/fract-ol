@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:18:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 17:53:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:12:21 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (!ft_strncmp(argv[1], "mandelbrot", 11) && argc == 2)
-		init(argv);
+		init_mandelbrot(argv);
 	else if (!ft_strncmp(argv[1], "julia", 6) && argc == 4)
-		init(argv);
+		init_julia(argv);
 	else if (!ft_strncmp(argv[1], "help", 5))
 		print_help();
 	else
