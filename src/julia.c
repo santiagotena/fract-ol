@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 18:39:54 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/19 23:12:55 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi)
 	while (++n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
-		{
 			break ;
-		}
 		tmp = 2 * zr * zi + f->ki;
 		zr = zr * zr - zi * zi + f->kr;
 		zi = tmp;
@@ -58,12 +56,7 @@ void	draw_julia(t_fractol *f, t_img *img)
 	mlx_put_image_to_window(f->mlx, f->win, img->img, 0, 0);
 }
 
-// void	init_julia(t_fractol *f, t_img *img)
-// {
-// 	draw_julia(f, img);
-// }
-
-void	init(char **argv)
+void	init_julia(char **argv)
 {
 	t_fractol	f;
 	t_img		img;
@@ -71,6 +64,7 @@ void	init(char **argv)
 	f.mlx = mlx_init();
 	if (f.mlx == NULL)
 		return ;
+	f.f_name = *argv[1];
 	f.min_r = -2.0;
 	f.max_r = 1.0;
 	f.min_i = -1.5;
