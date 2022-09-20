@@ -6,21 +6,21 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:37:07 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:05:10 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
 // Close windows
-int		close_win(t_fractol *f)
+int	close_win(t_fractol *f)
 {
 	mlx_destroy_window(f->mlx, f->win);
 	f->win = NULL;
 	exit(0);
 }
 
-int		key_hooks(int keycode, t_fractol *f)
+int	key_hooks(int keycode, t_fractol *f)
 {
 	if (keycode == 53)
 		close_win(f);
@@ -28,7 +28,7 @@ int		key_hooks(int keycode, t_fractol *f)
 }
 
 // Mouse Zooming
-static void		move(t_fractol *f, double distance, char direction)
+static void	move(t_fractol *f, double distance, char direction)
 {
 	double	center_r;
 	double	center_i;
@@ -57,7 +57,7 @@ static void		move(t_fractol *f, double distance, char direction)
 	}
 }
 
-static void		zoom(t_fractol *f, double zoom)
+static void	zoom(t_fractol *f, double zoom)
 {
 	double	center_r;
 	double	center_i;
@@ -70,7 +70,7 @@ static void		zoom(t_fractol *f, double zoom)
 	f->max_i = f->min_i + zoom * center_i;
 }
 
-int		mouse_event(int keycode, int x, int y, t_fractol *f)
+int	mouse_event(int keycode, int x, int y, t_fractol *f)
 {
 	if (keycode == MOUSE_WHEEL_UP)
 	{
