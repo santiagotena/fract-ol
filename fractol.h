@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:35:38 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/20 21:21:17 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,24 @@
 //Fractal parameters 
 typedef struct s_fractol
 {
-	void	*mlx;
-	void	*win;
-	char	*f_name;
-	double	min_r;
-	double	max_r;
-	double	min_i;
-	double	max_i;
-	double	kr;
-	double	ki;
-	struct	s_img *pimg;
+	void			*mlx;
+	void			*win;
+	char			*f_name;
+	double			min_r;
+	double			max_r;
+	double			min_i;
+	double			max_i;
+	double			kr;
+	double			ki;
+	struct s_img	*pimg;
 }				t_fractol;
+
+typedef struct s_point {
+	int		x;
+	int		y;
+	double	r;
+	double	i;
+}				t_point;
 
 //Images (data)
 typedef struct s_img {
@@ -64,19 +71,19 @@ typedef struct s_img {
 // Help
 void	print_help(void);
 
-// Draw fractals
+// Draw fractals //
+// Mandelbrot
 void	init_mandelbrot(char **argv);
 void	mandelbrot(t_img *img, int x, int y, double cr, double ci);
 void	draw_mandelbrot(t_fractol *f, t_img *img);
+// Julia
 void	init_julia(char **argv);
-void	julia(t_fractol *f, t_img *img, int x, int y, double zr, double zi);
+void	julia(t_fractol *f, t_img *img, t_point *p);
 void	draw_julia(t_fractol *f, t_img *img);
 
-//Windows
+//Window Acrtions
 int		close_win(t_fractol *data);
 int		key_hooks(int keycode, t_fractol *data);
-
-//Mouse
 int		mouse_event(int keycode, int x, int y, t_fractol *f);
 
 //Utils
