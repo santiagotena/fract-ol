@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/20 21:59:06 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/21 01:19:03 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	init_julia(char **argv);
 void	julia(t_fractol *f, t_img *img, t_point *p);
 void	draw_julia(t_fractol *f, t_img *img);
 
-//Window Acrtions
+//Window actions
 int		close_win(t_fractol *data);
 int		key_hooks(int keycode, t_fractol *data);
 int		mouse_event(int keycode, int x, int y, t_fractol *f);
