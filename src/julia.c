@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/20 21:33:13 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/21 01:20:45 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	init_julia(char **argv)
 		f.kr = ft_atod(argv[2]);
 		f.ki = ft_atod(argv[3]);
 	}
-	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Fractal");
+	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Julia Set");
 	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
