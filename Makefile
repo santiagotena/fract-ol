@@ -6,7 +6,7 @@
 #    By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 19:06:42 by stena-he          #+#    #+#              #
-#    Updated: 2022/09/19 18:15:24 by stena-he         ###   ########.fr        #
+#    Updated: 2022/09/21 00:42:18 by stena-he         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,20 @@ OBJ = $(SRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	$(MAKE) -C libraries/mlx
+	$(MAKE) -C libraries/ft_printf
+	$(MAKE) -C libraries/ft_printf/libft
 	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
+	$(MAKE) clean -C libraries/mlx
+	$(MAKE) clean -C libraries/ft_printf
+	$(MAKE) clean -C libraries/ft_printf/libft
 	$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
+	$(MAKE) fclean -C libraries/ft_printf
+	$(MAKE) fclean -C libraries/ft_printf/libft
 	$(RM) $(NAME)
 
 re: fclean all
