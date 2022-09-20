@@ -6,19 +6,19 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/19 23:36:04 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/20 22:00:24 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-void	mandelbrot(t_img *img, int x, int y, double cr, double ci)
+void	mandelbrot(t_img *img, t_point *p)
 {
 	int		n;
 	double	zr;
 	double	zi;
 	double	tmp;
-	
+
 	zr = 0;
 	zi = 0;
 	n = -1;
@@ -26,34 +26,32 @@ void	mandelbrot(t_img *img, int x, int y, double cr, double ci)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 			break ;
-		tmp = 2 * zr * zi + ci;
-		zr = zr * zr - zi * zi + cr;
+		tmp = 2 * zr * zi + p->i;
+		zr = zr * zr - zi * zi + p->r;
 		zi = tmp;
 	}
 	if (n >= 0 && n <= (MAX_ITERATIONS / 2) - 1)
-		my_mlx_pixel_put(img, x, y, 0x00003366);
+		my_mlx_pixel_put(img, p->x, p->y, 0x00003366);
 	else if (n >= MAX_ITERATIONS / 2 && n <= MAX_ITERATIONS - 1)
-		my_mlx_pixel_put(img, x, y, 0x00000000);
+		my_mlx_pixel_put(img, p->x, p->y, 0x00000000);
 	else
-		my_mlx_pixel_put(img, x, y, 0x00CC3333);
+		my_mlx_pixel_put(img, p->x, p->y, 0x00CC3333);
 }
 
 void	draw_mandelbrot(t_fractol *f, t_img *img)
 {
-	int		x;
-	int		y;
-	double	pr;
-	double	pi;
+	t_point	p;
 
-	y = -1;
-	while (++y < HEIGHT)
+	mlx_clear_window(f->mlx, f->win);
+	p.y = -1;
+	while (++p.y < HEIGHT)
 	{
-		x = -1;
-		while (++x < WIDTH)
+		p.x = -1;
+		while (++p.x < WIDTH)
 		{
-			pr = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-			pi = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-			mandelbrot(img, x, y, pr, pi);
+			p.r = f->min_r + (double)p.x * (f->max_r - f->min_r) / WIDTH;
+			p.i = f->min_i + (double)p.y * (f->max_i - f->min_i) / HEIGHT;
+			mandelbrot(img, &p);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, img->img, 0, 0);
