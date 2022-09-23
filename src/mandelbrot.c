@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/21 01:20:35 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:26:27 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ void	mandelbrot(t_img *img, t_point *p)
 		zr = zr * zr - zi * zi + p->r;
 		zi = tmp;
 	}
-	if (n >= 0 && n <= (MAX_ITERATIONS / 2) - 1)
-		my_mlx_pixel_put(img, p->x, p->y, 0x00003366);
-	else if (n >= MAX_ITERATIONS / 2 && n <= MAX_ITERATIONS - 1)
-		my_mlx_pixel_put(img, p->x, p->y, 0x00000000);
+	if (n >= 0 && n <= MAX_ITERATIONS - 1)
+		my_mlx_pixel_put(img, p->x, p->y, bernstein_color(n));
 	else
-		my_mlx_pixel_put(img, p->x, p->y, 0x00CC3333);
+		my_mlx_pixel_put(img, p->x, p->y, 0x00FFFFFF);
 }
 
 void	draw_mandelbrot(t_fractol *f, t_img *img)

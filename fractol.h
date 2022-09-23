@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:13:07 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/21 01:19:03 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:15:27 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ int		mouse_event(int keycode, int x, int y, t_fractol *f);
 //Utils
 void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 double	ft_atod(char *arr);
+int		bernstein_color(int n);
 
 #endif

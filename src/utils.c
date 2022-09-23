@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 13:54:46 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/20 20:41:06 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:36:23 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,20 @@ double	ft_atod(char *arr)
 		return (-val);
 	else
 		return (val);
+}
+
+int	bernstein_color(int n)
+{
+	double	r;
+	double	g;
+	double	b;
+	double	t;
+	double	color;
+
+	t = (double)n / 255;
+	r = 9 * (1 - t) * pow(t, 3) * 255;
+	g = 15 * pow((1 - t), 2) * pow(t, 2) * 255;
+	b = 8.5 * pow((1 - t), 3) * t * 255;
+	color = 0 << 24 | (int)r << 16 | (int)g << 8 | (int)b;
+	return (color);
 }

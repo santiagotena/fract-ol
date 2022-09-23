@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/21 01:20:45 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:17:00 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ void	julia(t_fractol *f, t_img *img, t_point *p)
 		p->r = p->r * p->r - p->i * p->i + f->kr;
 		p->i = tmp;
 	}
-	if (n >= 0 && n <= (MAX_ITERATIONS / 2) - 1)
-		my_mlx_pixel_put(img, p->x, p->y, 0x00003366);
-	else if (n >= MAX_ITERATIONS / 2 && n <= MAX_ITERATIONS - 1)
-		my_mlx_pixel_put(img, p->x, p->y, 0x00000000);
+	if (n >= 0 && n <= MAX_ITERATIONS - 1)
+		my_mlx_pixel_put(img, p->x, p->y, bernstein_color(n));
 	else
-		my_mlx_pixel_put(img, p->x, p->y, 0x00CC3333);
+		my_mlx_pixel_put(img, p->x, p->y, 0x00FFFFFF);
 }
 
 void	draw_julia(t_fractol *f, t_img *img)
