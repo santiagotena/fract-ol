@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/25 12:58:46 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:26:48 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,30 @@ int	key_hooks(int keycode, t_fractol *f)
 // Mouse Zooming
 static void	move(t_fractol *f, double distance, char direction)
 {
-	double	center_r;
-	double	center_i;
+	double	range_r;
+	double	range_i;
 
-	center_r = f->max_r - f->min_r;
-	center_i = f->max_i - f->min_i;
+	range_r = f->max_r - f->min_r;
+	range_i = f->max_i - f->min_i;
 	if (direction == 'R')
 	{
-		f->min_r += center_r * distance;
-		f->max_r += center_r * distance;
+		f->min_r += range_r * distance;
+		f->max_r += range_r * distance;
 	}
 	else if (direction == 'L')
 	{
-		f->min_r -= center_r * distance;
-		f->max_r -= center_r * distance;
+		f->min_r -= range_r * distance;
+		f->max_r -= range_r * distance;
 	}
 	else if (direction == 'D')
 	{
-		f->min_i -= center_i * distance;
-		f->max_i -= center_i * distance;
+		f->min_i -= range_i * distance;
+		f->max_i -= range_i * distance;
 	}
 	else if (direction == 'U')
 	{
-		f->min_i += center_i * distance;
-		f->max_i += center_i * distance;
+		f->min_i += range_i * distance;
+		f->max_i += range_i * distance;
 	}
 }
 
