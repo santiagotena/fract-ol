@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/25 12:20:25 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:58:46 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ static void	move(t_fractol *f, double distance, char direction)
 
 static void	zoom(t_fractol *f, double zoom)
 {
-	double	center_r;
-	double	center_i;
+	double	range_r;
+	double	range_i;
 
-	center_r = f->min_r - f->max_r;
-	center_i = f->max_i - f->min_i;
-	f->max_r = f->max_r + (center_r - zoom * center_r) / 2;
-	f->min_r = f->max_r + zoom * center_r;
-	f->min_i = f->min_i + (center_i - zoom * center_i) / 2;
-	f->max_i = f->min_i + zoom * center_i;
+	range_r = f->max_r - f->min_r;
+	range_i = f->max_i - f->min_i;
+	f->max_r = f->max_r - (range_r - zoom * range_r) / 2;
+	f->min_r = f->max_r - zoom * range_r;
+	f->min_i = f->min_i + (range_i - zoom * range_i) / 2;
+	f->max_i = f->min_i + zoom * range_i;
 }
 
 int	mouse_event(int keycode, int x, int y, t_fractol *f)
