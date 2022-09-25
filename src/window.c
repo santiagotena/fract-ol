@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:56:54 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/20 17:05:10 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:20:25 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ int	mouse_event(int keycode, int x, int y, t_fractol *f)
 		else if (x > 0)
 			move(f, (double)x / WIDTH, 'R');
 		if (y < 0)
-			move(f, (double)y * -1 / HEIGHT, 'U');
+			move(f, (double)y * -1 / HEIGHT, 'D');
 		else if (y > 0)
-			move(f, (double)y / HEIGHT, 'D');
+			move(f, (double)y / HEIGHT, 'U');
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
 		zoom(f, 2);
