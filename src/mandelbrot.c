@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:20 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/23 14:26:27 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:11:10 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	init_mandelbrot(char **argv)
 		return ;
 	f.f_name = argv[1];
 	f.min_r = -2.0;
-	f.max_r = 1.0;
-	f.min_i = -1.5;
-	f.max_i = f.min_i + (f.max_r - f.min_r) * HEIGHT / WIDTH;
+	f.max_r = 2.0;
+	f.min_i = -2.0;
+	f.max_i = 2.0;
 	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, "Mandelbrot Set");
 	img.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,

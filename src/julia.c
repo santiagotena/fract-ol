@@ -6,7 +6,7 @@
 /*   By: stena-he <stena-he@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 22:11:38 by stena-he          #+#    #+#             */
-/*   Updated: 2022/09/23 14:17:00 by stena-he         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:09:57 by stena-he         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	assign_julia(t_fractol *f, char **argv)
 {
 	f->f_name = argv[1];
 	f->min_r = -2.0;
-	f->max_r = 1.0;
-	f->min_i = -1.5;
-	f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
+	f->max_r = 2.0;
+	f->min_i = -2.0;
+	f->max_i = 2.0;
 }
 
 void	init_julia(char **argv)
