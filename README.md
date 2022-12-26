@@ -4,11 +4,11 @@
 <img src="https://github.com/santiagotena/assets/blob/master/logos/42%20logo.jpeg?raw=true" alt="42 Wolfsburg Logo" width="150" height="150">
 </p>
  
-This is one of the first graphical projects from 42 Wolfsburg. The aim is to render fractals, abstract mathematical objects whose pattern remains the same at every scale. The use of complex numbers is central to the concept of fractals.
+This is one of the first graphical projects from 42 Wolfsburg. The aim is to render fractals, abstract mathematical objects whose pattern remains the same at every scale. By using numerical computing, we are able to run the calculations needed to represent complex numbers in a two dimensional plane.
  
 For this project we must use the 42 Network graphical library called MiniLibX. This library was
 developed internally and includes basic necessary tools to open a window, create images
-and deal with keyboard and mouse events. This was an opportunity to get familiar with event handling.
+and deal with keyboard and mouse events. In other words, this was an opportunity to get familiar with event handling.
  
 # Usage
  
