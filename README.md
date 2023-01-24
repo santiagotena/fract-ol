@@ -32,6 +32,8 @@ For execution use the following inputs within the terminal:
 ./fractol julia <real_number> <imaginary_number>
 ```
 
+Either fractal can be zoomed in and out by using the mouse wheel. The action will be centered on the cursor's position.
+
 Example: 
 ```
 ./fractol julia -0.77 -0.09
